@@ -46,3 +46,9 @@ function decrypt_password(ciphertext){
 	plaintext = plaintext.replace(salt,'')
 	return plaintext;
 }
+
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+	if (request.method == "getSelection") {
+		sendResponse({text: window.getSelection().toString()});
+	}
+});
