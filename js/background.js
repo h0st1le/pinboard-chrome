@@ -168,7 +168,7 @@ var DeliciousUser = new Class({
 	},
 	
 	getURL: function(url, parameters){
-		return 'https://' + this.username + ':' + this.password + '@api.pinboard.in/v1/' + url;
+		return 'https://' + encodeURIComponent(this.username) + ':' + encodeURIComponent(this.password) + '@api.pinboard.in/v1/' + url;
 	},
 	
 	isLoggedIn: function(){
