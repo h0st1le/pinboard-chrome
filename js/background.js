@@ -59,10 +59,15 @@ var Delicious = new Class({
 			method: 'get',
 			url: this.getURL('posts/update'),
 			onSuccess: function(responseText, responseXML){
-				if (responseXML.getElementsByTagName('update')[0].getAttribute('time')) {
-					var time = responseXML.getElementsByTagName('update')[0].getAttribute('time');
-				} else {
-					var time = null;
+				var time = null;
+				if (responseXML && responseXML.getElementsByTagName('update')[0].getAttribute('time')) {
+					time = responseXML.getElementsByTagName('update')[0].getAttribute('time');
+				} else if (responseText) {
+					// try to extract it from the response text...
+					var result = responseText.match(/update time="([^"]+)"/);
+					if (result.length > 1) {
+						time = result[1];
+					}
 				}
 				if(time > (localStorage['lastUpdate'] || '')){
 					self.load();
