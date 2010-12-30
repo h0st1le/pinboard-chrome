@@ -120,11 +120,13 @@ var Delicious = new Class({
 					});
 					
 					postTags.each(function(item){
-						tagIndex[item] = (tagIndex[item] || 0) + 1;
+						if (item != "") {
+							tagIndex[item] = (tagIndex[item] || 0) + 1;
+						}
 					});
 				}
 				
-				$each(tagIndex, function(item, key){
+				Hash.each(tagIndex, function(item, key){
 					tags.push({name: key, count: item});
 				});
 				
