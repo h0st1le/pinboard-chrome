@@ -8,7 +8,7 @@ var Delicious = new Class({
 		this.lastUpdate = null;
 		
 		this.isWorking = false;
-		this.autoUpdateInterval = 600000; //Update Every 10 minutes
+		this.autoUpdateInterval = 900000; //Update Every 15 minutes
 		
 		this.posts = [];
 		this.tags = [];
