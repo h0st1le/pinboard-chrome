@@ -5,6 +5,14 @@ document.addEvent('domready', function(){
 	$('password').value = '';
 	$('autosynch').checked = Boolean(parseInt(localStorage.autosynch) || 0);
 	$('keyboardshort').checked = Boolean(parseInt(localStorage.keyboardshort) || 0);
+	switch (localStorage.popupicon) {
+		case 'black':
+			$('popupicon_black').checked = true;
+			break;
+		default:
+			$('popupicon_default').checked = true;
+			break;
+	}
 	
 	//register events
 	$('saveuser').addEventListener('click', function(){
@@ -24,6 +32,15 @@ document.addEvent('domready', function(){
 	
 	$('synchnow').addEventListener('click', function(){
 		sync();
+	});
+	
+	$('popupicon_default').addEventListener('change', function(){
+		if (this.checked) localStorage.popupicon = 'default';
+		changePopupIcon();
+	});
+	$('popupicon_black').addEventListener('change', function(){
+		if (this.checked) localStorage.popupicon = 'black';
+		changePopupIcon();
 	});
 	
 	chrome.extension.onRequest.addListener(function(request){

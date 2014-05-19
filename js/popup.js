@@ -1,4 +1,4 @@
-﻿var version = '0.2.3.6';
+﻿var version = '0.2.3.8';
 var selectedTags = [];
 var delicious = chrome.extension.getBackgroundPage().delicious;
 var notifications;

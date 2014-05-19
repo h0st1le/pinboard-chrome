@@ -43,7 +43,7 @@ function decrypt_password(ciphertext){
 	var key = hexToByteArray('**enter your private hexadecimal key here**');
 	var salt = '**enter your salt here**';
 	var plaintext = byteArrayToString(rijndaelDecrypt(hexToByteArray(ciphertext),key,'ECB'));
-	plaintext = plaintext.replace(salt,'')
+	plaintext = plaintext.replace(salt,'');
 	return plaintext;
 }
 
@@ -52,3 +52,14 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 		sendResponse({text: window.getSelection().toString()});
 	}
 });
+
+function changePopupIcon () {
+	switch (localStorage.popupicon) {
+		case 'black':
+			chrome.browserAction.setIcon({'path':'images/icon_19_black.png'});
+			break;
+		default:
+			chrome.browserAction.setIcon({'path':'images/icon_19.png'});
+			break;
+	}
+}

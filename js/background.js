@@ -322,14 +322,18 @@ document.addEvent('domready', function(){
 		}    
 	});      
 });
-if (!localStorage['hashed']) {
+/* Extra Junk */
+if (!localStorage.hashed) {
 	localStorage.password = encrypt_password(encrypt_password(localStorage.username)+localStorage.password);
 	localStorage.hashed = true;
 }
-if (localStorage['keyboardshort']!=0&&localStorage['keyboardshort']!=1) {
+if (localStorage.keyboardshort!=0&&localStorage.keyboardshort!=1) {
 	localStorage.keyboardshort = 1;
 }
 if(!localStorage.installed){
   chrome.tabs.create( { url: "/options.html" } );
   localStorage.installed = true;
+}
+if (localStorage.popupicon) {
+	changePopupIcon();
 }

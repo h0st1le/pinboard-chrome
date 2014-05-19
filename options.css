@@ -43,7 +43,7 @@ input[type=text],
 input[type=password]{
 	width: 100%;
 }
-input[type=checkbox]{
+input[type=checkbox], input[type=radio]{
 	display: block;
 	float: left;
 }
@@ -53,7 +53,7 @@ input[type=checkbox]{
 .fieldset{
 	width: 220px;
 	margin: 0 20px 20px 0;
-	height: 280px;
+	min-height: 280px;
 	float: left;
 	border: 1px solid #cccccc;
 	border-radius: 5px;
@@ -72,7 +72,6 @@ input[type=checkbox]{
 	min-height: 20px;
 	line-height: 20px;
 	vertical-align: center;
-	overflow: hidden;
 }
 .disabled{
 	opacity: .1;
@@ -148,14 +147,23 @@ div.notes{
 	padding: 6px 20px 0 20px;
 	border-left: 1px solid #cccccc;
 }
-.notes dt{
+.notes dl dt{
 	font-size: 12px;
 	font-weight: bold;
 	float: left;
 	margin: 0;
 }
-.notes dd {
+.notes dl dd{
 	margin: 0 0 1em 55px;
+}
+.notes dl .small {
+	font-size: 11px;
+}
+.notes dl .smaller {
+	font-size: 10px;
+}
+.notes dl .smallest {
+	font-size: 9px;
 }
 
 /*__Jacob's Additions__*/
@@ -165,6 +173,18 @@ div.notes{
 #delicious_form input {
 	margin: 5px 0 12px 0;
 }
-#autosynch, #keyboardshort {
+input[type=checkbox], input[type=radio] {
 	margin: 4px 8px 4px 0;
+}
+#popupicon_list {
+	padding: 0;
+	margin: 0;
+}
+#popupicon_list li {
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+#popupicon_list li label {
+	float: left;
 }
